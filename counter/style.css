@@ -1,0 +1,25 @@
+body {
+    background: url(background.jpg);
+    background-size:100vmax 100vmax;
+}
+
+main {
+    text-align: center;
+    text-transform:uppercase;
+}
+
+button {
+    width: 250px;
+    padding: 15px 40px;
+    margin: 5px;
+    border-radius: 5px;
+    text-transform:uppercase;
+}
+
+#button-1 {
+    background-color:whitesmoke;
+}
+
+#button-2 {
+    background-color:forestgreen;
+}
