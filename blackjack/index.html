@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,14 +7,16 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div>
-            <h1>Black Jack</h1>
-            <p><span>Cards: </span></p>
-            <p><span>Sum: </span></p>
-            <button onclick="" type="button">NEW GAME</button>
-            <button onclick="" type="button">GET A CARD</button> 
-            <p><span>Player info</span></p>           
-        </div>
+        <main>
+            <div>
+                <h1>Black Jack</h1>
+                <p><span id="cards-el">Cards: </span></p>
+                <p><span id="sum-el">Sum: </span></p>
+                <button onclick="newGame()" type="button">NEW GAME</button>
+                <button onclick="getCard()" type="button">GET A CARD</button> 
+                <p><span id="player-el"></span></p>           
+            </div>  
+        </main>
 
         <script src="app.js"></script>
     </body>
