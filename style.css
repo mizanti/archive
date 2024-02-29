@@ -1,0 +1,20 @@
+.jacquarda-bastarda {
+    font-family: "Jacquarda Bastarda 9", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+  .kode-mono {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400; /* 400-700 */
+    font-style: normal;
+}  
+
+h1 {
+    font-family: "Kode Mono", monospace;
+}
+
+.card {
+    font-style: italic;
+}
