@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    min-width: 300px;
+    margin: 0;
+    display: flex;
+}
+
+main {
+    margin: 10px;
+}
+
+input {
+    border: 2px solid darkgreen;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    background-color: darkgreen;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 5px;
+    border: none;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    color: darkgreen;
+}
+
