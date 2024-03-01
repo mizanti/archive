@@ -15,7 +15,7 @@ main {
 
 input {
     border: 2px solid darkgreen;
-    padding: 10px 20px;
+    padding: 10px;
     width: 100%;
     max-width: 300px;
 }
@@ -25,16 +25,17 @@ button {
     color: white;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 10px;
     margin-top: 5px;
     border: none;
 }
 
 ul {
     list-style: none;
+    padding: 0;
 }
 
-li {
+a {
     color: darkgreen;
 }
 
