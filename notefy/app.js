@@ -1,9 +1,10 @@
 let webItems = [];
-let localItems = JSON.parse(localStorage.getItem("items"));
+const localItems = JSON.parse(localStorage.getItem("items"));
 
 const inputEl = document.querySelector("#input-el");
-const saveEl = document.querySelector("#save-el");
+const saveBtn = document.querySelector("#save-btn");
 const entriesEl = document.querySelector("#entries-el");
+const deleteBtn = document.querySelector("#delete-btn");
 
 if (localItems) {
     webItems = localItems;
@@ -17,6 +18,12 @@ function save() {
     listEntries();
 }
 
+function deleteAll() {
+    webItems = [];
+    localStorage.clear();
+    listEntries();
+}
+
 function listEntries() {
     let list = "";
     for (let i = 0; i < webItems.length; i++) {
@@ -25,4 +32,5 @@ function listEntries() {
     entriesEl.innerHTML = list;
 }
 
-saveEl.addEventListener("click", save);
+saveBtn.addEventListener("click", save);
+deleteBtn.addEventListener("click", deleteAll);
