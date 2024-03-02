@@ -5,6 +5,7 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     min-width: 300px;
+    max-width: 400px;
     margin: 0;
 }
 
@@ -16,7 +17,6 @@ input {
     border: 2px solid darkgreen;
     padding: 10px;
     width: 100%;
-    max-width: 300px;
     margin: 0 0 0 0;
 }
 
