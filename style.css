@@ -4,13 +4,13 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 15px;
-    /* border: 1px solid red; */
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 body {
     margin: 0;
     padding: 0;
-    width: 100dvw;
     background-color: #ffd400;
 }
 
@@ -35,6 +35,8 @@ input {
     font-size: large;
     text-align: center;
     font-weight: bold;
+    -webkit-user-select: text;
+    user-select: text;
 }
 
 button {
@@ -48,6 +50,12 @@ button {
     font-size: large;
 }
 
+button:hover {
+    background: #181401;
+    border: 3px solid #181401;
+    cursor: pointer;
+}
+
 ul {
     display: flex;
     flex-wrap: wrap;
@@ -56,7 +64,7 @@ ul {
     gap: 10px;
 }
 
-ul li {
+li {
     color: #262001;
     background: #F2F2F2;
     padding: 10px;
@@ -66,4 +74,9 @@ ul li {
     flex-grow: 1;
     align-content: space-between;
     text-align: center;
+}
+
+li:hover {
+    background: #ffcbcb;
+    cursor: pointer;
 }
