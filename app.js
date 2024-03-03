@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 // GLOBAL VARIABLES
 
@@ -19,7 +19,7 @@ const contentEl = document.querySelector("#content");
 addBtn.addEventListener("click", addCart);
 
 onValue(shoppingDb, function (snapshot) {
-    let itemsArr = Object.values(snapshot.val());
+    let itemsArr = Object.entries(snapshot.val());
     contentEl.innerHTML = "";
     for (const item of itemsArr) {
         renderOut(item);
@@ -32,5 +32,12 @@ function addCart() {
 };
 
 function renderOut(value) {
-    contentEl.innerHTML += `<li>${value}</li>`;
+    let addEl = document.createElement("li");
+    addEl.textContent = value[1];
+    contentEl.append(addEl);
+
+    addEl.addEventListener("click", function(){
+        let delItemId = ref(database, `items/${value[0]}`);
+        remove(delItemId);
+    })
 };
