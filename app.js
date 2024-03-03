@@ -1,36 +1,36 @@
-let sessionSaves = [];
-const localSaves = JSON.parse(localStorage.getItem("saves"));
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+// GLOBAL VARIABLES
+
+const appSettings = {
+    databaseURL: "https://addtocart-a2ae5-default-rtdb.firebaseio.com"
+};
+const app = initializeApp(appSettings);
+const database = getDatabase(app);
+const shoppingDb = ref(database, "items");
 
 const inputEl = document.querySelector("#input-el");
 const addBtn = document.querySelector("#add-btn");
-const content = document.querySelector("#content");
-const delBtn = document.querySelector("#del-btn");
+const contentEl = document.querySelector("#content");
+
+//FUNCTIONS
 
 addBtn.addEventListener("click", addCart);
-delBtn.addEventListener("click", delCart);
 
-if (localSaves) {
-    sessionSaves = localSaves;
-    renderOut(sessionSaves);
-}
-
-function addCart(){
-    sessionSaves.push(inputEl.value);
-    localStorage.setItem("saves", JSON.stringify(sessionSaves));
-    inputEl.value = "";
-    renderOut(sessionSaves);
-}
-
-function delCart(){
-    localStorage.clear();
-    sessionSaves = [];
-    renderOut(sessionSaves);
-}
-
-function renderOut(value){
-    let render = "";
-    for (let i = 0; i < sessionSaves.length; i++) {
-        render += `<li>${value[i]}</li>`
+onValue(shoppingDb, function (snapshot) {
+    let itemsArr = Object.values(snapshot.val());
+    contentEl.innerHTML = "";
+    for (const item of itemsArr) {
+        renderOut(item);
     }
-    content.innerHTML = render;
-}
+});
+
+function addCart() {
+    push(shoppingDb, inputEl.value);
+    inputEl.value = "";
+};
+
+function renderOut(value) {
+    contentEl.innerHTML += `<li>${value}</li>`;
+};
