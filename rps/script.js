@@ -5,6 +5,7 @@ let cPoints = 0;
 let uWeapon;
 let cWeapon;
 let round;
+let winner;
 
 const newGameBtn = document.querySelector("#new-game-btn");
 newGameBtn.addEventListener("click", () => newGame());
@@ -28,6 +29,8 @@ function newGame () {
   uPoints = 0;
   cPoints = 0;
   round = 0;
+  winner = "";
+  newGameBtn.classList.add("hide")
   //TODO: ACTIVE BUTTONS
   clearUI();
 }
@@ -38,15 +41,14 @@ function getWeapons (user) {
   } else {
     uWeapon = user;
     cWeapon = Math.floor(Math.random() * 3);
-    winnerEl.textContent = "";
     playRound(uWeapon, cWeapon);
   }
 }
 
 function playRound (user, computer) {
   round++;
-  uChoiceEl.textContent = `User choose ${weapons[uWeapon]}`;
-  cChoiceEl.textContent = `Computer choose ${weapons[cWeapon]}`;
+  uChoiceEl.textContent = weapons[uWeapon];
+  cChoiceEl.textContent = weapons[cWeapon];
 
   if (user === computer) winnerEl.textContent = "Draw!";
   else if (
@@ -57,27 +59,29 @@ function playRound (user, computer) {
       uImg.setAttribute('src', 'assets/ugrin.png');
       cImg.setAttribute('src', 'assets/cdizzy.png');
       uPoints++;
+      renderPoints();
     }
   else {
     winnerEl.textContent = "Alien point +";
     uImg.setAttribute('src', 'assets/udizzy.png');
     cImg.setAttribute('src', 'assets/cgrin.png');
     cPoints++;
+    renderPoints();
   }
 
   if (uPoints === 3) {
     winnerEl.textContent = "User wins!";
     uImg.setAttribute('src', 'assets/uloved.png');
     cImg.setAttribute('src', 'assets/cknocked.png');
-    //TODO DEACTIVATE BUTTONS
+    newGameBtn.classList.remove("hide");
+    winner = u;
   } else if (cPoints === 3) {
-    winnerEl.textContent = "Computer wins!";
+    winnerEl.textContent = "Alien wins!";
     uImg.setAttribute('src', 'assets/uknocked.png');
     cImg.setAttribute('src', 'assets/cloved.png');
-    //TODO DEACTIVATE BUTTONS
+    newGameBtn.classList.remove("hide");
+    winner = c;
   }
-  
-  renderPoints();
 }
 
 function renderPoints() {
@@ -101,14 +105,18 @@ const cImg = document.querySelector("#c-img");
 const uWBtn = document.querySelectorAll(".u-w-btn");
 const cWBtn = document.querySelectorAll(".c-w-btn");
 
-uWBtn.forEach(function(button) {
-  button.addEventListener("mouseover", () => uImg.setAttribute('src', 'assets/udoubt.png'));
-  button.addEventListener("mouseout", () => uImg.setAttribute('src', 'assets/uchallenge.png'));
-});
-
-cWBtn.forEach(function(button) {
-  button.addEventListener("mouseover", () => cImg.setAttribute('src', 'assets/cangry.png'));
-  button.addEventListener("mouseout", () => cImg.setAttribute('src', 'assets/cchallenge.png'));
-});
+if (!winner) {
+  uWBtn.forEach(function(button) {
+    button.addEventListener("mouseover", () => uImg.setAttribute('src', 'assets/udoubt.png'));
+    button.addEventListener("mouseout", () => uImg.setAttribute('src', 'assets/uchallenge.png'));
+  });
+}
+  
+if (!winner) {
+  cWBtn.forEach(function(button) {
+    button.addEventListener("mouseover", () => cImg.setAttribute('src', 'assets/cangry.png'));
+    button.addEventListener("mouseout", () => cImg.setAttribute('src', 'assets/cchallenge.png'));
+  });
+}
 
 

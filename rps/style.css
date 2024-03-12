@@ -30,6 +30,7 @@ h3 {
 
 button {
     font-size: 18px;
+    cursor: pointer;
 }
 
 #header {
@@ -39,19 +40,19 @@ button {
 #points {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 #game {
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 600px;
+    width: 500px;
 }
 
 #table {
     display: flex;
-    /* justify-content: space-between; */
-    height: 400px;
+    height: 300px;
     font-size: 20px;
 }
 
@@ -62,38 +63,68 @@ button {
     flex: 3;
 }
 
+#u-choice-el,
+#c-choice-el {
+    background-color: #4D194D;
+    border-radius: 50px;
+    padding: 10px 15px;
+    margin: 10px;
+    width: 100%;
+}
+
 #user,
 #computer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #3E1F47;
+    padding: 20px 10px;
+    border-radius: 15px;
 }
 
 #user button,
 #computer button {
     width: 100px;
-    height: 75px;
-    background: #891652;
+    height: 50px;
+    background: #144552;
     color: #EABE6C;
-    border: 1px solid #891652;
+    border: 4px solid #272640;
     border-radius: 50px;
+    box-shadow: 0 3px #312244;
 }
 
-#user button {
-    box-shadow: 0px 4px 1px #FFEDD8;
+#user button:hover {
+    background: #1B3A4B;
 }
 
-#computer button {
-    box-shadow: 0px 4px 1px #FFEDD8;
+#user button:active {
+    background-color: #212F45;
+    box-shadow: 0 1px #312244;
+    transform: translateY(4px);
 }
 
 #footer button {
     width: 200px;
-    height: 70px;
-    background: #337357;
+    height: 50px;
+    background: #006466;
     color: #EABE6C;
-    border: 1px solid #337357;
+    border: 1px solid #144552;
     border-radius: 15px;
-    box-shadow: 0px 3px 1px #FFEDD8;
+    box-shadow: 0 3px #144552;
+    margin: 30px;
     font-size: 30px;
+}
+
+#footer button:hover {
+    background-color: #065A60;
+}
+
+#footer button:active {
+    background-color: #0B525B;
+    box-shadow: 0 1px #312244;
+    transform: translateY(4px);
+}
+
+.hide {
+    display: none;
 }
