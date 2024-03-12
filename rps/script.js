@@ -5,7 +5,7 @@ let cPoints = 0;
 let uWeapon;
 let cWeapon;
 let round;
-let winner;
+let hasWinner = false;
 
 const newGameBtn = document.querySelector("#new-game-btn");
 newGameBtn.addEventListener("click", () => newGame());
@@ -23,22 +23,23 @@ const uChoiceEl = document.querySelector("#u-choice-el");
 const cChoiceEl = document.querySelector("#c-choice-el");
 const winnerEl = document.querySelector("#winner-el");
 
-
-
 function newGame () {
   uPoints = 0;
   cPoints = 0;
   round = 0;
-  winner = "";
-  newGameBtn.classList.add("hide")
-  //TODO: ACTIVE BUTTONS
+  hasWinner = "";
+  uChoiceEl.style.backgroundColor = "";
+  cChoiceEl.style.backgroundColor = "";
+  newGameBtn.classList.add("hide");
   clearUI();
 }
 
 function getWeapons (user) {
-  if (uPoints === win || cPoints === win) {
+  if (hasWinner) {
     winnerEl.textContent = "Start a new game";
   } else {
+    uChoiceEl.style.backgroundColor = "#4D194D";
+    cChoiceEl.style.backgroundColor = "#4D194D";
     uWeapon = user;
     cWeapon = Math.floor(Math.random() * 3);
     playRound(uWeapon, cWeapon);
@@ -74,13 +75,13 @@ function playRound (user, computer) {
     uImg.setAttribute('src', 'assets/uloved.png');
     cImg.setAttribute('src', 'assets/cknocked.png');
     newGameBtn.classList.remove("hide");
-    winner = u;
+    hasWinner = true;
   } else if (cPoints === 3) {
     winnerEl.textContent = "Alien wins!";
     uImg.setAttribute('src', 'assets/uknocked.png');
     cImg.setAttribute('src', 'assets/cloved.png');
     newGameBtn.classList.remove("hide");
-    winner = c;
+    hasWinner = true;
   }
 }
 
@@ -105,18 +106,21 @@ const cImg = document.querySelector("#c-img");
 const uWBtn = document.querySelectorAll(".u-w-btn");
 const cWBtn = document.querySelectorAll(".c-w-btn");
 
-if (!winner) {
+if (!hasWinner) {
   uWBtn.forEach(function(button) {
     button.addEventListener("mouseover", () => uImg.setAttribute('src', 'assets/udoubt.png'));
     button.addEventListener("mouseout", () => uImg.setAttribute('src', 'assets/uchallenge.png'));
   });
 }
   
-if (!winner) {
+if (!hasWinner) {
   cWBtn.forEach(function(button) {
     button.addEventListener("mouseover", () => cImg.setAttribute('src', 'assets/cangry.png'));
     button.addEventListener("mouseout", () => cImg.setAttribute('src', 'assets/cchallenge.png'));
   });
 }
 
-
+newGameBtn.addEventListener("mouseover", () => uImg.setAttribute('src', 'assets/uamazed.png'));
+newGameBtn.addEventListener("mouseout", () => uImg.setAttribute('src', 'assets/uchallenge.png'));
+newGameBtn.addEventListener("mouseover", () => cImg.setAttribute('src', 'assets/camazed.png'));
+newGameBtn.addEventListener("mouseout", () => cImg.setAttribute('src', 'assets/cchallenge.png'));
