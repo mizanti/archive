@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Madimi One", sans-serif;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    background: #240A34;
+    color: #EABE6C;
+}
+
+img {
+    width: 70px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+button {
+    font-size: 18px;
+}
+
+#header {
+    margin: 30px 0;
+}
+
+#points {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 600px;
+}
+
+#table {
+    display: flex;
+    /* justify-content: space-between; */
+    height: 400px;
+    font-size: 20px;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 3;
+}
+
+#user,
+#computer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#user button,
+#computer button {
+    width: 100px;
+    height: 75px;
+    background: #891652;
+    color: #EABE6C;
+    border: 1px solid #891652;
+    border-radius: 50px;
+}
+
+#user button {
+    box-shadow: 0px 4px 1px #FFEDD8;
+}
+
+#computer button {
+    box-shadow: 0px 4px 1px #FFEDD8;
+}
+
+#footer button {
+    width: 200px;
+    height: 70px;
+    background: #337357;
+    color: #EABE6C;
+    border: 1px solid #337357;
+    border-radius: 15px;
+    box-shadow: 0px 3px 1px #FFEDD8;
+    font-size: 30px;
+}

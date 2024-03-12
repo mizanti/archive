@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Madimi+One&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="game">
+        <div id="header">
+            <h1>Rock-Paper-Scissor</h1>
+        </div>
+        <div id="table">
+            <div id="user">
+                <div><h3><img id="u-img" src="assets/uchallenge.png" alt="User emoji"></h3></div>
+                <div><button id="u-rock-btn" class="u-w-btn">ROCK</button></div>
+                <div><button id="u-paper-btn" class="u-w-btn">PAPER</button></div>
+                <div><button id="u-scissor-btn" class="u-w-btn">SCISSOR</button></div>
+                <div></div>
+            </div>
+            <div id="main">
+                <div id="points">
+                    <div><h3><span id="u-points-el"></span></h3></div>
+                    <div><h2>VS</h2></div>
+                    <div><h3><span id="c-points-el"></span></h3></div>
+                </div>
+                <div><span id="u-choice-el"></span></div>
+                <div><h3><span id="winner-el"></span></h3></div>
+                <div><span id="c-choice-el"></span></div>
+            </div>
+            <div id="computer">
+                <div><h3><img id="c-img" src="assets/cchallenge.png" alt="Computer emoji"></h3></div>
+                <div><button id="c-rock-btn" class="c-w-btn">ROCK</button></div>
+                <div><button id="c-paper-btn" class="c-w-btn">PAPER</button></div>
+                <div><button id="c-scissor-btn" class="c-w-btn">SCISSOR</button></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div><button id="new-game-btn">New Game</button></div>
+        </div>
+    </div>
+</body>
+</html>
