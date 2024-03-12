@@ -1,8 +1,5 @@
 let webItems = [];
 const localItems = JSON.parse(localStorage.getItem("items"));
-const tabs = [
-    {"url": "www.google.com"}
-]
 
 const inputEl = document.querySelector("#input-el");
 const saveBtn = document.querySelector("#save-btn");
