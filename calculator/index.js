@@ -45,6 +45,18 @@ function add() {
     displayEl.value = (+a) + (+b);
 }
 
+function subtract() {
+    displayEl.value = (+a) - (+b);
+}
+
+function multiply() {
+    displayEl.value = (+a) * (+b);
+}
+
+function divide() {
+    displayEl.value = (+a) / (+b);
+}
+
 function clear() {
     expressionEl.value = '';
     displayEl.value = '';
@@ -56,16 +68,3 @@ function clear() {
 //TODO: event listener on '/*-+ keys' to store operator
 //TODO: event listener on '=/*-+ keys' to store values
 //TODO: event listener on '= key' to run operate()
-
-//TODO: add() (a + b)
-//TODO: subtract() (a - b)
-//TODO: multiply() (a * b)
-//TODO: divide() (a / b)
-
-//TODO: operate()
-    // store the values and operator
-    // call the correspondent function 
-    // store the result
-    // update display with the solution
-    // reset variables
-
