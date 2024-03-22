@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div id="container">
+        <div id="canvas">
+        </div>
+        <div id="config">
+            <div>
+                <span id="error-msg" class="hide">Insert a number between 1 and 100</span>
+            </div>
+            <div>
+                <label for="width">w:</label>
+                <input type="number" name="width" placeholder="16" min="0" max="100" id="width-input">
+                <label for="height">h:</label>
+                <input type="number" name="height" placeholder="16" min="0" max="100" id="height-input">
+                <input type="button" name="submit" placeholder="submit" id="submit-btn" value="Submit">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
