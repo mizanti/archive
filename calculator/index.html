@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
 
 </head>
 <body>
 
     <div id="calculator">
         <div id="head">
-            <div id="display">
-                <input type="text">
-            </div>
+            <input id="expression" type="text">
+            <input id="display" type="text">
         </div>
         <div id="body">
             <div id="numbers">
@@ -31,14 +30,14 @@
                 <button class="num">0</button>
             </div>
             <div id="operators">
-                <button class="op">+</button>
-                <button class="op">-</button>
-                <button class="op">*</button>
-                <button class="op">/</button>
-                <button class="op">=</button>
+                <button id="add" class="op">+</button>
+                <button id="subtract" class="op">-</button>
+                <button id="multiply" class="op">*</button>
+                <button id="divide" class="op">/</button>
+                <button id="equals" class="op">=</button>
             </div>
             <div id="misc">
-                <button data-key="clear">clear</button>
+                <button id="clear">clear</button>
             </div>
         </div>
     </div>
