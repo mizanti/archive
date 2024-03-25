@@ -1,0 +1,97 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body,h1,h2,h3,h4,p,
+figure,blockquote,dl,dd {
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
+}
+
+body {
+    margin: 0;
+    padding: 40px;
+    min-height: 100vh;
+    line-height: 1.5;
+    background: #fff000;
+}
+
+h1, h2, h3, h4,
+button, input, label {
+    line-height: 1.1;
+}
+
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+input {
+    width: 100%;
+}
+
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 35px;
+    border-radius: 30px;
+    background: #333333;
+}
+
+#expression {
+    font-size: 1em;
+}
+
+#solution {
+    font-size: 1.8em;
+}
+
+#pad {
+    display: flex;
+    gap: 10px;
+}
+
+#numbers,
+#operators {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+#numbers {
+    flex: 3;
+}
+
+#operators {
+    flex: 2;
+}
+
+#operators >button,
+#numbers > button {
+    flex: 1;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
