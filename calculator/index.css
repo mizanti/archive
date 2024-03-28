@@ -67,12 +67,9 @@ input, button, textarea, select {
     margin: 30px 30px 10px 30px;
 }
 
+#solution,
 #expression {
-    font-size: 1em;
-}
-
-#solution {
-    font-size: 1.8em;
+    font-size: 1.4em;
 }
 
 #pad {

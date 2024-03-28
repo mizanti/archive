@@ -1,4 +1,5 @@
-let a, b, operator, solution;
+const operators = ['+', '-', '*', '/']
+let a, b, operator, temp, solution;
 
 const expressionEl = document.querySelector('#expression');
 const solutionEl = document.querySelector('#solution');
@@ -8,65 +9,79 @@ const clearBtn = document.querySelector('#clear');
 const clearEBtn = document.querySelector('#clear-e');
 const equalsBtn = document.querySelector('#equals');
 
-numbersBtn.forEach(number => number.addEventListener('click', updateDisplay));
-operatorsBtn.forEach(operator => operator.addEventListener('click', getValues))
+numbersBtn.forEach(number => number.addEventListener('click', newClick));
+operatorsBtn.forEach(operator => operator.addEventListener('click', newClick));
 
 clearBtn.addEventListener('click', clear);
 clearEBtn.addEventListener('click', clearE);
 
-
-function updateDisplay() {
-    if (solutionEl.value === String(solution)) {
-        expressionEl.value = `${a} `;
-        solutionEl.value = ''
+function newClick() {
+    const pressedBtn = this.textContent;
+    const isNumber = !isNaN(pressedBtn);
+    
+    if (isNumber) {
+        solutionEl.value += pressedBtn;
+        getValues();
+    } else {
+        getOperator(pressedBtn);
     }
-
-    solutionEl.value += this.textContent;
-}
-
-function getOperator(op) {
-    if (!(op === '=')) {
-        operator = op;
-        expressionEl.value += `${operator} `        
-    }   
 }
 
 function getValues() {
-    
-    getOperator(this.textContent);
-
-    if (solution) {
-        a = solution;
-        b = null;
-        operator = null;
-    }
-    
-    if (!a) {
+    if (!operator && !solution) {
         a = +solutionEl.value;
-        expressionEl.value += `${a} `;
     } else {
         b = +solutionEl.value;
-        expressionEl.value += `${b} `;
-    }    
+    }
+    
+    console.log(`b ${a} ${operator} ${b} = ${solution}`);
+}
+
+function getOperator(e) {
+    if (operators.includes(e)) {
+        operator = e;
+    }
     
     clear();
-    solutionEl.value = operate();
+    getSolution(e);
+    
+    console.log(`c ${a} ${operator} ${b} = ${solution}`);
+}
+
+function getSolution (e) {
+    if (e === '=') {
+        solution = operate();
+        temp = '';
+    } else {
+        temp = operate();
+    }
+    
+    updateDisplay();
+    console.log(`d ${a} ${operator} ${b} = ${solution}`);
 }
 
 function operate() {
-    console.log(a, operator, b, solution)
-    if (a && b && operator) {
-        operator === "+" ? solution = a + b :
-        operator === "-" ? solution = a - b :
-        operator === "*" ? solution = a * b :
-        operator === "/" ? solution = a / b :
-        console.log('ERROR');
+    let output;
+    operator === "+" ? output = a + b :
+    operator === "-" ? output = a - b :
+    operator === "*" ? output = a * b :
+    operator === "/" ? output = a / b :
+    output = 'ERROR';
+    return output;
+}
 
-        console.log(a, operator, b, solution)
-
-        return solution;
+function updateDisplay() {
+    console.log(solution, temp);
+    if (solution) {
+        expressionEl.value = `${solution} `;
+        a = solution;
+        solution = null;
+    } else if (temp) {
+        expressionEl.value = `${a} ${operator} `;
+        // solutionEl.value = `${temp} `;
+    } else {
+        expressionEl.value = `${a} ${operator} `;
     }
-
 }
 
 function clear() {
@@ -81,3 +96,5 @@ function clearE() {
     expressionEl.value = '';
     solutionEl.value = '';
 }
+
+// console.log(`${a} ${operator} ${b} = ${solution}`);
