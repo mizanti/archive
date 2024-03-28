@@ -1,26 +1,23 @@
-let calculator = {
-    read() {
-        this.a = +prompt("a?");
-        this.b = +prompt("b?");
-    },
-    sum() {
-        return this.a + this.b;
-    },
-    sub() {
-        return this.a - this.b;
-    },
-    mul() {
-        return this.a * this.b;
-    },
-    div() {
-        return this.a / this.b;
-    }
-};
-  
-calculator.read();
-alert( calculator.sum() );
-alert( calculator.sub() );
-alert( calculator.mul() );
-alert( calculator.div() );
+const expressionEl = document.querySelector('#expression');
+const solutionEl = document.querySelector('#solution');
+const numbersBtn = document.querySelectorAll('.num');
+const operatorsBtn = document.querySelectorAll('.op');
+const clearBtn = document.querySelector('#clear');
+const clearEBtn = document.querySelector('#clear-e');
 
-console.log(calculator);
+numbersBtn.forEach(number => number.addEventListener('click', calc.updateDisplay));
+operatorsBtn.forEach(operator => operator.addEventListener('click', getValues))
+clearBtn.addEventListener('click', clear);
+clearEBtn.addEventListener('click', clearE);
+
+const calc = {
+  a: null,
+  b: null,
+  operator: '',
+  solution: null,
+  updateDisplay: () => {
+    solutionEl.value = this;
+  }
+};
+
+console.log(calc)

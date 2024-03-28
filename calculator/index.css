@@ -1,13 +1,27 @@
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;600;800;900&display=swap);
+
+:root {
+    --black: #19181a;
+    --gray1: #221f22;
+    --gray2: #2d2a2e;
+    --gray3: #403e41;
+    --gray4: #5b595c;
+    --gray5: #727072;
+    --gray6: #939293;
+    --gray7: #c1c0c0;
+    --white: #fcfcfa;
+    --red: #ff6188;
+    --purple: #ab9df2;
+    --blue: #78dce8;
+    --green: #a9dc76;
+    --yellow: #ffd866;
+    --orange: #fc9867;
+}
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-html {
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
 }
 
 body,h1,h2,h3,h4,p,
@@ -17,45 +31,40 @@ figure,blockquote,dl,dd {
 }
 
 body {
+    font-family: 'Lato', sans-serif;
+    background: var(--gray2);
+    color: var(--white);
     margin: 0;
     padding: 40px;
     min-height: 100vh;
-    line-height: 1.5;
-    background: #fff000;
 }
 
-h1, h2, h3, h4,
-button, input, label {
+h1, h2, h3, h4, label {
     line-height: 1.1;
+    text-wrap: balance;
 }
 
-h1, h2,
-h3, h4 {
-  text-wrap: balance;
-}
-
-input, button,
-textarea, select {
+input, button, textarea, select {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
 }
 
-input {
-    width: 100%;
-}
-
-
 #calculator {
     display: flex;
     flex-direction: column;
-    gap: 30px;
     width: 300px;
     margin: 0 auto;
-    padding: 35px;
     border-radius: 30px;
-    background: #333333;
+    background: var(--black);
+}
+
+#head {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    margin: 30px 30px 10px 30px;
 }
 
 #expression {
@@ -69,6 +78,7 @@ input {
 #pad {
     display: flex;
     gap: 10px;
+    margin: 10px 30px 30px 30px;
 }
 
 #numbers,
@@ -88,10 +98,24 @@ input {
     flex: 2;
 }
 
-#operators >button,
-#numbers > button {
+#numbers > button,
+#operators > button {
     flex: 1;
     font-size: 1.2em;
     padding: 10px;
+    border-radius: 10px;
+    color: var(--gray7);
 }
 
+#numbers > button {
+    background-color: var(--gray4);
+}
+
+#operators > button {
+    background-color: var(--gray3);
+}
+
+#operators #equals {
+    background-color: var(--yellow);
+    color: var(--gray3);
+}
